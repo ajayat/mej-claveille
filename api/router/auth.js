@@ -21,7 +21,7 @@ const router = express.Router()
 router.post('/login', bodyFilter(['email', 'password'], 'AND'), loginCtrl)
 router.post('/register', bodyFilter(['email', 'username', 'password'], 'AND'), registerCtrl)
 router.post('/valid', bodyFilter(['email', 'code'], 'AND'), validEmailCtrl)
-router.post('/', checkToken, checkRole('FULL_ADMIN'), bodyFilter(['email', 'role'], 'AND'), validTokenCtrl)
-//
-// // Export router
+router.post('/', checkToken, validTokenCtrl)
+
+// Export router
 module.exports = router

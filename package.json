@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon index.js",
     "build": "next build",
-    "start": "next start -p 8000",
+    "start": "next start",
     "export": "next export"
   },
   "dependencies": {
@@ -14,6 +14,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@zeit/next-sass": "^1.0.1",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
@@ -21,6 +22,7 @@
     "fs": "^0.0.1-security",
     "handlebars": "^4.7.7",
     "jsonwebtoken": "^8.5.1",
+    "katex": "^0.13.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "next": "10.0.8",
@@ -28,10 +30,14 @@
     "pg": "^8.5.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-vertical-timeline-component": "^3.3.3",
     "reflect-metadata": "^0.1.10",
+    "sass": "^1.32.8",
     "sequelize": "^6.5.0",
     "sequelize-cli": "^6.2.0",
+    "styled-components": "^5.2.1",
     "styled-jsx": "^3.4.4",
+    "suneditor-react": "^2.16.0",
     "typeorm": "^0.2.31"
   }
 }

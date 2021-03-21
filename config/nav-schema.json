@@ -1,0 +1,41 @@
+{
+    "0": {
+        "type": "title",
+        "name": "Articles",
+        "min_role": ["READER", "WRITER"],
+        "content": {
+            "0": {
+                "type": "link",
+                "min_role": ["READER"],
+                "logo": "news_paper",
+                "name": "Afficher tous",
+                "route_name": "article_view_all"
+            },
+            "1": {
+                "type": "link",
+                "min_role": ["WRITER"],
+                "logo": "plus",
+                "name": "Ajouter",
+                "route_name": "article_add"
+            }
+        }
+    },
+    "1": {
+        "type": "title",
+        "name": "Paramètres",
+        "content": {
+            "0": {
+                "type": "link",
+                "name": "Mon compte",
+                "logo": "user_cog",
+                "route_name": "user_info"
+            },
+            "1": {
+                "type": "link",
+                "name": "Déconnexion",
+                "logo": "sign_out",
+                "route_name": "logout"
+            }
+        }
+    }
+}

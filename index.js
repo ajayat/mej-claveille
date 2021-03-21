@@ -8,7 +8,7 @@ require('dotenv').config()
 const apiApp = require('./api/app')
 
 // Get environment variables
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 3000
 const DEV_ENV = process.env.NODE_ENV !== 'production'
 
 // Init Next app

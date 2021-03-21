@@ -4,8 +4,8 @@ const darkMode = {
     secondaryBackgroundColor: "#363636",
     boxBackgroundColor: "#505050",
     primaryTextColor: "#dadada",
-    primaryFontColor: "#FA830D",
-    errorColor: "#ff0000"
+    primarySiteColor: "#FA830D",
+    errorColor: "#ff0000",
 }
 
 const lightMode = {
@@ -14,7 +14,7 @@ const lightMode = {
     boxBackgroundColor: "#e2e2e2",
     primaryTextColor: "#1e1e1e",
     primarySiteColor: "#6DBFFF",
-    errorColor: "#ff0000"
+    errorColor: "#ff0000",
 }
 
 export { darkMode, lightMode }

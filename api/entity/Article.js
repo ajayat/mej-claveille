@@ -12,13 +12,16 @@ module.exports = new EntitySchema({
         title: {
             type: "varchar",
             notEmpty: true,
-            unique: true
+            unique: false
         },
         content: {
-            type: "varchar",
-            default: 'null'
+            type: "longtext"
         },
         createdAt: {
+            type: "datetime",
+            notEmpty: true
+        },
+        updatedAt: {
             type: "datetime",
             notEmpty: true
         }
@@ -28,7 +31,8 @@ module.exports = new EntitySchema({
             target: "User",
             type: "many-to-one",
             joinColumn: true,
-            cascade: true
+            cascade: true,
+            eager: true
         }
     }
 });

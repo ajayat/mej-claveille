@@ -1,0 +1,21 @@
+{
+  "GET": {
+    "articleWithOutToken": "/api/article/without-token/",
+    "checkToken": "/api/auth/",
+    "currentUser": "/api/user/",
+    "article": "/api/article/"
+  },
+  "POST": {
+    "login": "/api/auth/login",
+    "register": "/api/auth/register",
+    "article": "/api/article",
+    "validUser": "/api/auth/validUser"
+  },
+  "PUT": {
+    "article": "/api/article/"
+  },
+  "DELETE": {
+    "article": "/api/article/",
+    "user": "/api/user/"
+  }
+}

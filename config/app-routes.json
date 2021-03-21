@@ -1,0 +1,11 @@
+{
+  "login": "/admin/login",
+  "userInfo": "/admin/user-info",
+  "logout": "/admin/logout",
+
+  "article_view_all": "/admin/article-view-all",
+  "article_add": "/admin/article-add",
+  "user_info": "/admin/user-info",
+  "article_view": "/admin/article-view",
+  "article_update": "/admin/article-update"
+}

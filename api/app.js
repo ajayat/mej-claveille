@@ -1,7 +1,7 @@
 
 // Require dependencies
 const express = require('express')
-const bdyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const typeorm = require('typeorm')
 const addDefaultFullAdmin = require('./add-default-full-admin')
 
@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 })
 
 // Convert in JSON the body of the request
-app.use(bdyParser.json())
+app.use(bodyParser.json({ limit: '10mb' }));
 
 // Add route to the API
 app.use('/api/user', userRoutes)

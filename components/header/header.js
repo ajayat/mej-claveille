@@ -1,32 +1,34 @@
 
 
-import React, { useContext } from 'react'
+import React from 'react'
 import Link from 'next/link'
 
-import PublicMenuContext from '../../templates/public/public-menu-context'
+import headerStyles from './header.module.scss'
+import navLinkStyle from './link.module.scss'
 
-import Theme from '../../templates/public/public-theme'
-import Style from './header-style'
-import {faBars} from "@fortawesome/free-solid-svg-icons/faBars";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+const NavLink = ({children, href, dark}) => {
+    return <div className={navLinkStyle.link}>
+        <span className={navLinkStyle.linkAnimation}>
+            <Link href={href}>
+                <span className={dark ? navLinkStyle.dark : navLinkStyle.light}>
+                    {children}
+                </span>
+            </Link>
+        </span>
+    </div>
+}
 
-const Header = () => {
-    const menuContext = useContext(PublicMenuContext)
-    const style = Style(Theme)
-    return <header>
-        <div className="header-container">
-            <div className="logo-frame">
+
+const Header = ({dark}) => {
+    return <header className={headerStyles.publicHeader}>
+        <div className={headerStyles.headerContainer}>
+            <div className={headerStyles.logoFrame}>
                 <Link href='/'>
-                    <img src='/img/logo.png' alt='Web site logo'/>
+                    <img src='/logo/mej_200px.png' alt='Web site logo'/>
                 </Link>
             </div>
-            <div className="show-menu-btn-frame">
-                <button className="btn-show-menu" onClick={() => menuContext.toggleDisplay(true)}>
-                    <FontAwesomeIcon icon={faBars}/>
-                </button>
-            </div>
+            <NavLink href='/article' dark={dark}>Articles</NavLink>
         </div>
-        <style jsx>{style}</style>
     </header>
 }
 

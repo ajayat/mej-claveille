@@ -1,0 +1,45 @@
+@import '../../styles/var.scss';
+.link {
+  margin: 0 10px;
+  .linkAnimation {
+    .dark {
+      color: #ffffff;
+    }
+    .light {
+      color: #000000;
+    }
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    transition: color .2s ease;
+    padding: 1px 0;
+    margin-bottom: 15px;
+    cursor: pointer;
+    &:hover {
+      &::after,
+      &::before {
+        width: 100%;
+        left: 0;
+      }
+    }
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc(100% + 5px);
+      width: 0;
+      right: 0;
+      height: 1.9px;
+    }
+    &::before {
+      transition: width .4s cubic-bezier(0.51, 0.18, 0, 0.88) .1s;
+      background: $primary-site-color;
+    }
+    &::after {
+      transition: width .2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+      background: $primary-site-color;
+    }
+  }
+}

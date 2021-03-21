@@ -23,7 +23,8 @@ module.exports = new EntitySchema({
             target: "User",
             type: "one-to-one",
             joinColumn: true,
-            cascade: true
+            cascade: true,
+            eager: true
         }
     }
 

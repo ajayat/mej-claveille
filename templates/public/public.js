@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 
 import Header from '../../components/header/header'
+import Footer from '../../components/footer/footer'
 import Menu from '../../components/menu/menu'
 
 import PublicMenuContext from './public-menu-context'
@@ -22,9 +23,10 @@ class PublicTemplate extends Component {
             toggleDisplay: (state=!this.state.displayMenu) => this.setState({ displayMenu: state })
         }
         return <PublicMenuContext.Provider value={menuValue}>
-            <Header/>
+            <Header dark={this.props['dark']}/>
             <Menu display={this.state.displayMenu} />
             {this.props.children}
+            <Footer/>
         </PublicMenuContext.Provider>
     }
 }
