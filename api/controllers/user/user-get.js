@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
             }})
         }
         else {
-            return response.badRequest(res, 'User not found !')
+            return response.badRequest(res, 'USER_NOT_FOUND')
         }
     }
     catch (err) {

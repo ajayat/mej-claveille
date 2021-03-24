@@ -23,11 +23,11 @@ module.exports = async (req, res) => {
                 return res.status(200).json({ message: 'Article deleted successfully !' })
             }
             else {
-                return response.badRequest(res, 'Your are not allow !')
+                return response.unauthorized(res, 'NOT_ALLOW')
             }
         }
         else {
-            return response.badRequest(res, 'Article not found !')
+            return response.badRequest(res, 'ARTICLE_NOT_FOUND')
         }
 
     }

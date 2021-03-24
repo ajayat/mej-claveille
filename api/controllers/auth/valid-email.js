@@ -42,23 +42,23 @@ module.exports = async (req, res) => {
                             })
                         }
                         else {
-                            return response.badRequest(res, 'Code expired !')
+                            return response.badRequest(res, 'EXPIRED_CODE')
                         }
                     }
                     else {
-                        return response.badRequest(res, 'Invalid code !')
+                        return response.badRequest(res, 'INVALID_CODE')
                     }
                 }
                 else {
-                    return response.badRequest(res, 'User is not already register !')
+                    return response.badRequest(res, 'ALREADY_REGISTERED')
                 }
             }
             else {
-                return response.badRequest(res, 'User already verified !')
+                return response.badRequest(res, 'ALREADY_VERIFIED')
             }
         }
         else {
-            return response.badRequest(res, 'User not found !')
+            return response.unauthorized(res, 'NOT_ALLOW')
         }
     }
     catch (err) {

@@ -25,13 +25,13 @@ module.exports = async (req, res) => {
             return res.status(200).json({ message: 'User updated !' })
         }
         else {
-            return response.badRequest(res, 'User not found !')
+            return response.badRequest(res, 'USER_NOT_FOUND')
         }
     }
     catch (err) {
         switch (err.code) {
             case 'ER_DUP_ENTRY':
-                return response.badRequest(res, 'Email already taken !')
+                return response.badRequest(res, 'EMAIL_ALREADY_USE')
         }
         if(functions.env_dev) console.log(err)
         return response.internalServerError(res)

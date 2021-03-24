@@ -1,7 +1,6 @@
 
 // Import dependencies
 const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
 const typeorm = require('typeorm')
 
 // Import Mail
@@ -54,14 +53,14 @@ module.exports = async (req, res) => {
                     valid_url: `${process.env.SITE_URL}/admin/validate?email=${user.email}&code=${key}`,
                     site_url: process.env.SITE_URL
                 })
-                return res.status(200).json({ message: `Mail send to ${user.email} `})
+                return res.status(200).json({ message: 'MAIL_SEND', to: user.email })
             }
             else {
-                return response.badRequest(res, 'User already verified !')
+                return response.badRequest(res, 'ALREADY_REGISTERED')
             }
         }
         else {
-            return response.badRequest(res, 'You are not allow to register !')
+            return response.unauthorized(res, 'NOT_ALLOW')
         }
     }
     catch (err) {

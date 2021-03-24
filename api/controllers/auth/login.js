@@ -36,15 +36,15 @@ module.exports = async (req, res) => {
                     })
                 }
                 else {
-                    return response.badRequest(res, 'Password is not valid')
+                    return response.badRequest(res, 'BAD_CREDENTIALS')
                 }
             }
             else {
-                return response.badRequest(res, 'User is not already register !')
+                return response.badRequest(res, 'NOT_REGISTERED')
             }
         }
         else {
-            return response.badRequest(res, 'User not found !')
+            return response.badRequest(res, 'BAD_CREDENTIALS')
         }
     }
     catch (err) {

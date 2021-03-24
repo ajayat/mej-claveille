@@ -46,7 +46,7 @@ module.exports = async (req, res) => {
             })
         }
         else {
-            return response.badRequest(res, 'Article not found !')
+            return response.badRequest(res, 'ARTICLE_NOT_FOUND')
         }
     }
     catch (err) {

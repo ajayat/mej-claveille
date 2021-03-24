@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
             return res.status(204).json({ message: 'User deleted !'})
         }
         else {
-            return response.badRequest(res, 'User does not exist !')
+            return response.badRequest(res, 'USER_NOT_FOUND')
         }
     }
     catch (err) {

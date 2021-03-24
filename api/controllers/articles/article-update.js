@@ -25,11 +25,11 @@ module.exports = async (req, res) => {
                 return res.status(200).json({ message: 'Article updated successfully' })
             }
             else {
-                return response.badRequest(res, 'You have not the privilege required to update this article !')
+                return response.unauthorized(res, 'NOT_ALLOW')
             }
         }
         else {
-            return response.badRequest(res, 'Cannot find the article !')
+            return response.badRequest(res, 'ARTICLE_NOT_FOUND')
         }
     }
     catch (err) {
