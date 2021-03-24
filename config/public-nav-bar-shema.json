@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Articles",
+    "target": "/article"
+  },
+  {
+    "name": "Ressources",
+    "target": "/src"
+  }
+]
