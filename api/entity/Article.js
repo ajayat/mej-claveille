@@ -15,14 +15,14 @@ module.exports = new EntitySchema({
             unique: false
         },
         content: {
-            type: "longtext"
+            type: "text"
         },
         createdAt: {
-            type: "datetime",
+            type: "timestamp",
             notEmpty: true
         },
         updatedAt: {
-            type: "datetime",
+            type: "timestamp",
             notEmpty: true
         }
     },
