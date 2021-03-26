@@ -53,7 +53,7 @@ module.exports = async (req, res) => {
                     valid_url: `${process.env.SITE_URL}/admin/validate?email=${user.email}&code=${key}`,
                     site_url: process.env.SITE_URL
                 })
-                return res.status(200).json({ message: 'MAIL_SEND', to: user.email })
+                return res.status(201).json({ message: 'MAIL_SEND', to: user.email })
             }
             else {
                 return response.badRequest(res, 'ALREADY_REGISTERED')

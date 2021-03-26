@@ -1,0 +1,67 @@
+
+
+.publicHeader
+  top: 0
+  right: 0
+  width: 100%
+  z-index: 1
+  position: absolute
+
+.publicHeaderContainer
+  height: 80px
+  width: 95%
+  margin: auto
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: right
+  user-select: none
+  border-bottom: solid 1.9px #ffffff
+
+.logoFrame
+  margin-right: auto
+  img
+    height: 50px
+    cursor: pointer
+
+
+.headerLink
+  margin: 0 10px
+
+.headerLinkAnimation
+  font-family: 'Raleway', sans-serif
+  font-weight: 500
+  font-size: 18px
+  position: relative
+  display: inline-block
+  transition: color .2s ease
+  padding: 1px 0
+  margin-bottom: 15px
+  cursor: pointer
+  color: #000000
+  &[mode='dark']
+    color: #ffffff
+  &:hover
+    &::after,
+    &::before
+      width: 100%
+      left: 0
+
+
+  &::after,
+  &::before
+    content: ''
+    position: absolute
+    top: calc(100% + 5px)
+    width: 0
+    right: 0
+    height: 1.9px
+
+  &::before
+    transition: width .4s cubic-bezier(0.51, 0.18, 0, 0.88) .1s
+    background: #b10418
+
+  &::after
+    transition: width .2s cubic-bezier(0.29, 0.18, 0.26, 0.83)
+    background: #b10418
+

@@ -18,7 +18,7 @@ const putArticle = async (title, content, id, token) => {
 }
 
 const putCurrentUser = async (data, token) => {
-    let request = await fetch(routes.PUT.user , {
+    let request = await fetch(routes.PUT.currentUser , {
         method,
         headers: {
             'Accept': 'application/json',

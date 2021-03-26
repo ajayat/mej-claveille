@@ -6,11 +6,10 @@ import getToken from '../../js/get-token'
 import appRoutes from "../../config/app-routes.json";
 import Router from 'next/router'
 import { getCurrentUser } from '../../js/api/GET'
-import Input from '../../components/input/input'
+import Input from '../../components/admin/input/input'
 import AdminTemplate from '../../templates/admin/admin'
-import Style from '../../styles/admin/user-info'
 import { putCurrentUser } from '../../js/api/PUT'
-import Button from '../../components/button/button'
+import Button from '../../components/admin/button/button'
 
 export default class UserInfo  extends Component {
     constructor(props) {
@@ -151,7 +150,6 @@ export default class UserInfo  extends Component {
                     </div>
                 </AdminTemplate.Options>
             </AdminTemplate.Footer>
-            <Style />
         </AdminTemplate>
     }
 }

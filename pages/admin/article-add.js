@@ -11,9 +11,9 @@ import getToken from "../../js/get-token";
 import Router from "next/router";
 import appRoutes from "../../config/app-routes.json";
 
-import Button from '../../components/button/button'
+import Button from '../../components/admin/button/button'
 
-import ArticleEditor from '../../components/articleEditor/articleEditor'
+import ArticleEditor from '../../components/admin/articleEditor/articleEditor'
 
 class ArticleAdd extends Component {
     constructor(props) {
@@ -71,7 +71,7 @@ class ArticleAdd extends Component {
                 updateContent={value => this.setState({ content: value})}/>
             <AdminTemplate.Footer>
                 <AdminTemplate.Options>
-                    <Button variants="primary m" onClick={this.checkArticle.bind(this)}>Ajouter</Button>
+                    <Button variants="primary" onClick={this.checkArticle.bind(this)}>Ajouter</Button>
                 </AdminTemplate.Options>
             </AdminTemplate.Footer>
         </AdminTemplate>

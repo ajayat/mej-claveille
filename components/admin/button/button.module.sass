@@ -1,0 +1,28 @@
+
+
+
+.button
+  background: transparent
+  padding: 5px 10px
+  border-radius: 5px
+  margin: 5px
+  cursor: pointer
+  font-family: sans-serif
+  &[variant='danger']
+    color: #ff0000
+    border: solid 1px #ff0000
+    &:hover
+      background-color: #ff0000
+      color: #ffffff
+  &[variant='success']
+    color: #11ff00
+    border: solid 1px #11ff00
+    &:hover
+      background-color: #11ff00
+      color: #ffffff
+  &[variant='primary']
+    color: var(--primarySiteColor)
+    border: solid 1px var(--primarySiteColor)
+    &:hover
+      background-color: var(--primarySiteColor)
+      color: #ffffff

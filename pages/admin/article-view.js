@@ -10,11 +10,8 @@ import appRoutes from "../../config/app-routes.json";
 
 import { format } from '../../js/format'
 
-import Style from '../../styles/admin/article-view'
 
-import ThemeButtonContext from '../../templates/admin/theme-context'
-
-import Loading from '../../components/loading/loading'
+import Loading from '../../components/admin/loading/loading'
 
 class ArticleView extends Component {
     constructor(props) {
@@ -89,19 +86,17 @@ class ArticleView extends Component {
                         .container {
                               font-family: 'Baloo 2', cursive;
                               font-size: 18px;
-                              color: ${this.context.theme.primaryTextColor}
+                              color: var(--primaryTextColor)
                             }
                         .content {
-                          color: ${this.context.theme.primaryTextColor}
+                          color: var(--primaryTextColor)
                         }
                   `}</style>
                 </AdminTemplate.Body>
-                <Style/>
             </AdminTemplate>
         }
     }
 }
 
-ArticleView.contextType  = ThemeButtonContext
 
 export default ArticleView

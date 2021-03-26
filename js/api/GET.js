@@ -4,8 +4,8 @@ import routes from '../../config/api-routes.json'
 const method = 'GET'
 
 
-const getArticleWithoutToken = async () => {
-    let request = await fetch(routes.GET.articleWithOutToken, {
+const getArticleWithoutToken = async (page=0) => {
+    let request = await fetch(`${routes.GET.articleWithOutToken}?page=${page}`, {
         method,
         headers: {
             'Accept': 'application/json',
@@ -16,6 +16,20 @@ const getArticleWithoutToken = async () => {
     })
     return [request.status, await request.json()]
 }
+const getArticleWithToken = async (token, page=0) => {
+    let request = await fetch(`${routes.GET.articleWithOutToken}?page=${page}`, {
+        method,
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': token
+        },
+        mode: 'cors',
+        cache: 'default'
+    })
+    return [request.status, await request.json()]
+}
+
 
 const getOneArticleWithoutToken = async (id, domain=undefined) => {
     let request = await fetch(`${domain}${routes.GET.articleWithOutToken}${id}`, {
@@ -64,5 +78,6 @@ export {
     getArticleWithoutToken,
     getOneArticleWithoutToken,
     getCurrentUser,
+    getArticleWithToken,
     getOneArticle
 }

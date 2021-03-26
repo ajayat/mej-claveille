@@ -2,11 +2,10 @@
 
 import React, { Component } from 'react'
 
-import Header from '../../components/header/header'
-import Footer from '../../components/footer/footer'
-import Menu from '../../components/menu/menu'
+import Header from '../../components/public/header/header'
+import Footer from '../../components/public/footer/footer'
 
-import PublicMenuContext from './public-menu-context'
+import PublicMenuContext from '../../context/public-menu'
 
 
 class PublicTemplate extends Component {
@@ -24,7 +23,6 @@ class PublicTemplate extends Component {
         }
         return <PublicMenuContext.Provider value={menuValue}>
             <Header dark={this.props['dark']}/>
-            <Menu display={this.state.displayMenu} />
             {this.props.children}
             <Footer/>
         </PublicMenuContext.Provider>

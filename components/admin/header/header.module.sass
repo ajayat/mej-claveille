@@ -1,0 +1,62 @@
+
+
+.adminHeader
+  width: 100%
+  height: 70px
+  z-index: 1
+  background-color: var(--secondaryBackgroundColor)
+  font-family: 'Montserrat', sans-serif
+  border-bottom: .5px solid var(--primarySiteColor)
+  user-select: none
+  position: fixed
+
+.headerContainer
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  padding: 0 20px
+
+.btnMenuFrame
+  button
+    width: 50px
+    cursor: pointer
+    border: none
+    background: none
+    &:first-child
+      font-size: 30px
+      color: var(--primaryTextColor)
+
+.appLogoFrame
+  span
+    cursor: pointer
+    margin: 0 20px
+    text-decoration: none
+    font-size: 24px
+    color: var(--primarySiteColor)
+
+.changeThemeContainer
+  margin-left: auto
+
+.changeThemeFrame
+  position: relative
+  height: 20px
+  width: 50px
+  border: solid 2px var(--primarySiteColor)
+  border-radius: 12px
+  &[dark='dark']
+    svg
+      transform: translate(27px, -50%)
+  svg
+    position: absolute
+    top: 50%
+    font-size: 22px
+    z-index: 1
+    padding: 7px
+    border: solid 2px var(--primarySiteColor)
+    background-color: var(--secondaryBackgroundColor)
+    border-radius: 100%
+    color: var(--primarySiteColor)
+    transition: .2s transform ease-in-out
+    cursor: pointer
+    transform: translate(-2px, -50%)

@@ -12,14 +12,37 @@ module.exports = async (req, res) => {
     try {
         const date = new Date()
         const articleRepository = typeorm.getRepository('Article')
-        await articleRepository.insert({
+        const result = await articleRepository.insert({
             title: req.body.title,
             content: req.body.content,
             user: { id: req.user.id },
             createdAt: date,
             updatedAt: date
         })
-        return res.status(200).json({ message: 'Article added successfully !' })
+        const article = await articleRepository.createQueryBuilder('article')
+            .leftJoinAndSelect('article.user', 'user')
+            .select([
+                'article.id',
+                'article.title',
+                'user.id',
+                'user.username',
+                'article.createdAt',
+                'article.updatedAt',
+                'article.content'
+            ])
+            .where({ id: result.raw.insertId })
+            .getOne()
+
+        if (article) {
+            return res.status(201).json({
+                message: 'Article added successfully !',
+                article
+            })
+        }
+        else {
+            return response.badRequest(res, 'ARTICLE_NOT_FOUND')
+        }
+
     }
     catch (err) {
         if ( functions.env_dev ) console.log(err)

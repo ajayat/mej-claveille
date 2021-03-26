@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 
 import Template from '../templates/public/public'
 
-import style from '../styles/index.module.scss'
+import style from './index.module.scss'
 import Head from "next/head"
 
 // First app
@@ -34,11 +34,7 @@ export default class Home extends Component {
                     </ul>
                 </div>
                 <div className={style.textContent}>
-                    <h1>Claveille Math</h1>
-                    <h1>En Jean</h1>
-                </div>
-                <div className='chevron'>
-                    {/*<FontAwesomeIcon icon={faChevronDown}/>*/}
+                    <h1>Claveille Math <br/> En Jean</h1>
                 </div>
                 <div className={style.wave}>
                     <img src='/svg/wave.svg'/>

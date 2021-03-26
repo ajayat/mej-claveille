@@ -5,11 +5,11 @@ import getToken from "../../js/get-token";
 import Router from "next/router";
 import appRoutes from "../../config/app-routes.json";
 import {getOneArticle} from "../../js/api/GET";
-import Loading from "../../components/loading/loading";
+import Loading from "../../components/admin/loading/loading";
 
-import ArticleEditor from "../../components/articleEditor/articleEditor"
+import ArticleEditor from "../../components/admin/articleEditor/articleEditor"
 import { putArticle } from "../../js/api/PUT";
-import Button from "../../components/button/button";
+import Button from "../../components/admin/button/button";
 
 export default class ArticleUpdate extends Component {
     constructor(props) {

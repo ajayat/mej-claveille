@@ -8,7 +8,7 @@ import { getArticleWithoutToken } from '../js/api/GET'
 import Router from 'next/router'
 import 'react-vertical-timeline-component/style.min.css'
 
-import style from '../styles/article/article.module.scss'
+import style from './article.module.sass'
 
 const ArticleFrame = ({article}) => {
 

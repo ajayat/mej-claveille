@@ -1,0 +1,26 @@
+
+
+.articleTable
+  table
+    width: 100%
+    border-collapse: collapse
+    text-align: center
+    font-family: 'Baloo 2', cursive
+    th[type='date']
+      @media screen and (max-width: 600px)
+        display: none
+    thead tr
+      height: 30px
+      color: var(--primaryTextColor)
+      font-size: 20px
+      letter-spacing: 1px
+      border-bottom: 1.5px solid var(--primarySiteColor)
+    tbody tr
+      color: var(--primaryTextColor)
+      font-size: 18px
+      height: 35px
+      cursor: pointer
+      &:nth-child(odd)
+        background-color: rgba(0, 0, 0, 0.05)
+      &:hover
+        background-color: rgba(0, 0, 0, 0.2)

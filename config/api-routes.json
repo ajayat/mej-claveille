@@ -9,10 +9,11 @@
     "login": "/api/auth/login",
     "register": "/api/auth/register",
     "article": "/api/article",
-    "validUser": "/api/auth/validUser"
+    "validUser": "/api/auth/valid"
   },
   "PUT": {
-    "article": "/api/article/"
+    "article": "/api/article/",
+    "currentUser": "/api/user/"
   },
   "DELETE": {
     "article": "/api/article/",

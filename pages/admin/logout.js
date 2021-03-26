@@ -8,7 +8,7 @@ import appRoutes from '../../config/app-routes.json'
 const Logout = () => {
     useEffect( () => {
         localStorage.removeItem('token')
-        Router.push(appRoutes.login)
+        Router.push(appRoutes.login).then()
     })
     return <></>
 }

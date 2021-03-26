@@ -1,14 +1,9 @@
 
-import React, { Component } from 'react'
-import Header from './header'
-import NavBar from './nav-bar'
 
-import navBarContent from './nav-bar-context'
 
-import { ThemeProvider } from 'styled-components'
-import { darkMode, lightMode } from './theme'
-
-import ThemeButtonContext from './theme-context'
+import React, { Component, useState, useEffect } from 'react'
+import ThemeContext from '../../context/admin-theme-context'
+import MenuContext from '../../context/admin-menu-context'
 
 import {
     TemplateHeader,
@@ -20,8 +15,35 @@ import {
     TemplateBox
 } from './components'
 
+import NavBar from '../../components/admin/menu/menu'
+import Header from '../../components/admin/header/header'
 
+import styles from './admin.module.sass'
 
+const Theme = ({ children }) => {
+    const [isDark, setMode] = useState(false)
+    const updateHtml = () => {
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
+    }
+    const changeTheme = (state) => {
+        localStorage.setItem('dark_mode', JSON.stringify(state))
+        setMode(state)
+        updateHtml()
+    }
+    useEffect(() => {
+        const dark = JSON.parse(localStorage.getItem('dark_mode'))
+        if(dark) {
+            setMode(true)
+        }
+        updateHtml()
+    })
+    return <ThemeContext.Provider value={{
+            dark: isDark,
+            toggleTheme: (state = !isDark) => changeTheme(!isDark)
+        }}>
+        {children}
+    </ThemeContext.Provider>
+}
 
 class AdminTemplate extends Component {
     static Header = TemplateHeader
@@ -31,82 +53,36 @@ class AdminTemplate extends Component {
     static Footer = TemplateFooter
     static SubTitle = TemplateSubTitle
     static Box = TemplateBox
-
     constructor(props) {
         super(props)
         this.state = {
-            displayNavBar: false,
-            dark: undefined
+            displayMenu: false
         }
-    }
-
-    componentDidMount() {
-        this.setState({
-            dark: JSON.parse(localStorage.getItem('dark_mode'))
-        })
-    }
-    updateTheme() {
-        localStorage.setItem('dark_mode', JSON.stringify(!this.state.dark))
-        this.setState({ dark: !this.state.dark })
     }
     render() {
-        if (this.state.dark === undefined) {
-            return <></>
-        }
-        const displayNavBarValue = {
-            display: this.state.displayNavBar,
-            toggleState: () => this.setState({ displayNavBar: (!this.state.displayNavBar) })
-        }
-        const themeValue = {
-            dark : this.state.dark,
-            theme: this.state.dark ? darkMode : lightMode,
-            toggleTheme: () => this.updateTheme()
-        }
-        return <ThemeProvider theme={ this.state.dark ? darkMode : lightMode}>
-            <ThemeButtonContext.Provider value={themeValue}>
-                <navBarContent.Provider value={displayNavBarValue}>
-                    <Header/>
-                    <div className="admin-container">
-                        <NavBar/>
-                        <div className="admin-page-content">
-                            <div className="component-box">
-                                { this.props.children }
-                            </div>
+        return <Theme>
+            <MenuContext.Provider value={{
+                    display: this.state.displayMenu,
+                    toggleState: () => this.setState({ displayMenu: !this.state.displayMenu })
+                }}>
+                <Header/>
+                <div className={styles.adminContainer}>
+                    <NavBar/>
+                    <div className={styles.adminPageContent}>
+                        <div className={styles.adminComponentBox}>
+                            { this.props.children }
                         </div>
                     </div>
-                    <style jsx>{`
-                      .admin-container {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: flex-start;
-                      }
-                      .admin-page-content {
-                        width: 100%;
-                        margin-top: 71px;
-                        min-height: calc(100vh - 71px);
-                      }
-                      .component-box {
-                        background-color: ${this.state.dark ? darkMode.secondaryBackgroundColor : lightMode.secondaryBackgroundColor};
-                        margin: 15px 10px;
-                        border-radius: 5px;
-                      }
-                      @media screen and (max-width: 600px){
-                        .component-box {
-                          margin: 10px 7px;
-                        }
-                      }
-                    `}</style>
-                            <style jsx global>{`
-                        body{
-                          background-color: ${this.state.dark ? darkMode.primaryBackgroundColor : lightMode.primaryBackgroundColor};
-                        }
-                    `}</style>
-                </navBarContent.Provider>
-            </ThemeButtonContext.Provider>
-        </ThemeProvider>
+                </div>
+                <style jsx global>{`
+                    body {
+                        background-color: var(--primaryBackgroundColor)
+                    }
+                `}</style>
+            </MenuContext.Provider>
+        </Theme>
     }
 }
 
-
-
 export default AdminTemplate
+export { Theme }

@@ -9,7 +9,7 @@ import Template from '../../templates/public/public'
 
 import { getOneArticleWithoutToken } from '../../js/api/GET'
 
-import styles from '../../styles/article/article-by-id.module.sass'
+import styles from './article-by-id.module.sass'
 
 import { format as formatDate } from '../../js/format'
 

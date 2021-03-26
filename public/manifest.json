@@ -1,0 +1,15 @@
+{
+  "short_name": "MEJ - Claveille",
+  "name": "Claveille - Math En Jeans",
+  "icons": [
+    {
+      "src": "./android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

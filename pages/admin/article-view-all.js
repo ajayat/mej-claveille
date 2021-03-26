@@ -3,41 +3,42 @@ import React, { Component } from 'react'
 
 import AdminTemplate from '../../templates/admin/admin'
 
-import { getArticleWithoutToken } from '../../js/api/GET'
+import { getArticleWithToken } from '../../js/api/GET'
 import { deleteArticle } from '../../js/api/DELETE'
 import getToken from "../../js/get-token";
 import Router  from "next/router";
-import appRoutes from "../../config/app-routes.json";
-import ArticlesTable from '../../components/articlesTable/articlesTable'
+import appRoutes from "../../config/app-routes.json"
+import ArticlesTable from '../../components/admin/articlesTable/articlesTable'
 
-import Button from '../../components/button/button'
+import Button from '../../components/admin/button/button'
 
-import Loading from '../../components/loading/loading'
+import Loading from '../../components/admin/loading/loading'
 
 
 class ArticleView extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            currentPage: 1,
+            totalPages: undefined,
             articles: undefined,
             loading: true,
             error: undefined
         }
     }
-    /**
-     *  Get the article from the API
-     */
-    async componentDidMount() {
+    async getArticles () {
         const token = await getToken()
         if(!token) {
             await Router.push(appRoutes.login)
         }
         else {
-            const [status, data] = await getArticleWithoutToken(token)
+            const [status, data] = await getArticleWithToken(token, this.state.currentPage)
+            console.log(data)
             switch(status){
                 case 200:
                     this.setState({
-                        articles: (data.articles),
+                        articles: data['articles'],
+                        totalPages: data['totalPages'],
                         loading: false
                     })
                     break
@@ -51,9 +52,15 @@ class ArticleView extends Component {
             this.token = token
         }
     }
+    /**
+     *  Get the article from the API
+     */
+    async componentDidMount() {
+        await this.getArticles()
+    }
     async deleteArticle(id) {
-        const status = await deleteArticle(this.token, id)
-        switch(status[0]) {
+        const [status, data] = await deleteArticle(this.token, id)
+        switch(status) {
             case 204:
                 let newArticles = []
                 for(const key in this.state.articles) {
@@ -93,6 +100,9 @@ class ArticleView extends Component {
                 <AdminTemplate.Header>
                     <AdminTemplate.Title value="Articles"/>
                     <AdminTemplate.Options>
+                        <Button onClick={async() => await this.getArticles()} variants="primary">
+                            Refresh
+                        </Button>
                         <Button onClick={async() => await Router.push(appRoutes.article_add)} variants="primary">
                             Ajouter
                         </Button>
@@ -100,6 +110,43 @@ class ArticleView extends Component {
                 </AdminTemplate.Header>
                 <AdminTemplate.Body>
                     <ArticlesTable articles={articles} delete={this.deleteArticle.bind(this)}/>
+                    {
+                        !this.state.loading ?
+                            <div>
+                                <h3>Current page : {this.state.currentPage}</h3>
+                                <h3>Total page : {this.state.totalPages}</h3>
+                                <button onClick={async() => {
+                                    this.setState({
+                                        currentPage: 1
+                                    })
+                                    await this.getArticles()
+                                }}>Fist page</button>
+                                <button onClick={async() => {
+                                    if (this.state.currentPage > 1) {
+                                        this.setState({
+                                            currentPage: (this.state.currentPage - 1)
+                                        })
+                                        await this.getArticles()
+                                    }
+                                }}>Previous page</button>
+                                <button onClick={async() => {
+                                    if (this.state.currentPage < this.state.totalPages) {
+                                        this.setState({
+                                            currentPage: (this.state.currentPage + 1)
+                                        })
+                                        await this.getArticles()
+                                    }
+                                }}>Next page</button>
+                                <button onClick={async() => {
+                                    this.setState({
+                                        currentPage: this.state.totalPages
+                                    })
+                                    await this.getArticles()
+                                }}>Last page</button>
+                            </div>
+                            : null
+                    }
+
                 </AdminTemplate.Body>
             </AdminTemplate>
         }

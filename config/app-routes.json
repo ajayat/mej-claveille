@@ -2,6 +2,7 @@
   "login": "/admin/login",
   "userInfo": "/admin/user-info",
   "logout": "/admin/logout",
+  "register": "/admin/register",
 
   "article_view_all": "/admin/article-view-all",
   "article_add": "/admin/article-add",

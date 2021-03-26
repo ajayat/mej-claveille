@@ -1,17 +1,13 @@
-
-
-import React, { useContext } from "react";
-import themeContext from './theme-context'
+import React  from "react";
 
 
 
 const TemplateHeader = ({children}) => {
-    const theme = useContext(themeContext)
     return <div id="t-header">
         {children}
         <style jsx>{`
             #t-header{
-              background-color:${theme.theme.boxBackgroundColor};
+                background-color: var(--boxBackgroundColor);
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
                 padding:  20px;
@@ -34,13 +30,12 @@ const TemplateBody = ({ children }) => {
 }
 
 const TemplateTitle = ({ value }) => {
-    const theme = useContext(themeContext)
     return <div id="t-title">
         <h2>{ value }</h2>
         <style jsx>{`
           #t-title {
             font-family: 'Baloo 2', cursive;
-            color: ${theme.theme.primarySiteColor};
+            color: var(--primarySiteColor);
             font-size: 20px;
           }
         `}</style>
@@ -59,12 +54,11 @@ const TemplateOptions = ({ children }) => {
 }
 
 const TemplateBox = ({ children }) => {
-    const theme = useContext(themeContext)
     return <div id="t-box">
         {children}
         <style jsx>{`
           #t-box {
-            background-color:${theme.theme.boxBackgroundColor};
+            background-color: var(--boxBackgroundColor);
             border-radius: 5px;
             padding: 10px 10px;
             margin: 10px 5px;
@@ -74,12 +68,11 @@ const TemplateBox = ({ children }) => {
 }
 
 const TemplateFooter = ({children}) => {
-    const theme = useContext(themeContext)
     return <div id="t-footer">
         {children}
         <style jsx>{`
           #t-footer {
-            background-color:${theme.theme.boxBackgroundColor};
+            background-color: var(--boxBackgroundColor);
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
             padding: 20px;
@@ -91,13 +84,12 @@ const TemplateFooter = ({children}) => {
 }
 
 const TemplateSubTitle = ({ value }) => {
-    const theme = useContext(themeContext)
     return <div id="t-sub-title">
         <h3>{ value }</h3>
         <style jsx>{`
           #t-sub-title {
             font-family: 'Baloo 2', cursive;
-            color: ${theme.theme.primaryTextColor};
+            color: var(--primaryTextColor);
             font-size: 20px;
           }
         `}</style>

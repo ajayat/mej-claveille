@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
                     .delete()
                     .where({ id: articleId })
                     .execute()
-                return res.status(200).json({ message: 'Article deleted successfully !' })
+                return res.status(204).json({ message: 'Article deleted successfully !' })
             }
             else {
                 return response.unauthorized(res, 'NOT_ALLOW')
