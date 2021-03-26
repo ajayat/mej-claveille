@@ -33,11 +33,11 @@ module.exports = new EntitySchema({
             ])
         },
         lastLogin: {
-            type: "datetime",
+            type: "timestamp",
             notEmpty: true
         },
         createdAt: {
-            type: "datetime",
+            type: "timestamp",
             notEmpty: true
         }
     }
