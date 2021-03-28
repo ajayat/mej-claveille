@@ -1,12 +1,9 @@
 
 
 // Export mail connection configuration
-module.exports = {
+let databaseConfig = {
     type: process.env.DATABASE_TYPE,
     url: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    },
     // rejectUnauthorized: false
     synchronize: process.env.NODE_ENV !== 'production',
     logging: false,
@@ -14,3 +11,11 @@ module.exports = {
         "api/entity/*.js"
     ]
 }
+
+if(process.env.NODE_ENV === 'production') {
+    databaseConfig.ssl = {
+        rejectUnauthorized: false
+    }
+}
+
+module.exports = databaseConfig

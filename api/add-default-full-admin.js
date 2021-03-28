@@ -2,8 +2,6 @@
 // Import dependencies
 const typeorm = require('typeorm')
 
-
-
 module.exports = addDefaultFullAdmin = async () => {
     const userRepository = typeorm.getRepository('User')
     const usersEmail = JSON.parse(process.env.FULLADMIN)
@@ -25,6 +23,7 @@ module.exports = addDefaultFullAdmin = async () => {
                 lastLogin: date
             })
             console.log(`> Add user ${email} with full admin`)
+
         }
     }
 }
