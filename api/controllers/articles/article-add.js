@@ -19,30 +19,12 @@ module.exports = async (req, res) => {
             createdAt: date,
             updatedAt: date
         })
-        const article = await articleRepository.createQueryBuilder('article')
-            .leftJoinAndSelect('article.user', 'user')
-            .select([
-                'article.id',
-                'article.title',
-                'user.id',
-                'user.username',
-                'article.createdAt',
-                'article.updatedAt',
-                'article.content'
-            ])
-            .where({ id: result.raw.insertId })
-            .getOne()
-
-        if (article) {
-            return res.status(201).json({
-                message: 'Article added successfully !',
-                article
-            })
-        }
-        else {
-            return response.badRequest(res, 'ARTICLE_NOT_FOUND')
-        }
-
+        return res.status(201).json({
+            message: 'Article added successfully !',
+            article: {
+                id: result.identifiers[0].id
+            }
+        })
     }
     catch (err) {
         if ( functions.env_dev ) console.log(err)

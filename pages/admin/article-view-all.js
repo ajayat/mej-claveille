@@ -34,7 +34,7 @@ class ArticleView extends Component {
         else {
             const [status, data] = await getArticleWithToken(token, this.state.currentPage)
             console.log(data)
-            switch(status){
+            switch(status) {
                 case 200:
                     this.setState({
                         articles: data['articles'],

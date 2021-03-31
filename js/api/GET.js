@@ -16,6 +16,7 @@ const getArticleWithoutToken = async (page=0) => {
     })
     return [request.status, await request.json()]
 }
+
 const getArticleWithToken = async (token, page=0) => {
     let request = await fetch(`${routes.GET.articleWithOutToken}?page=${page}`, {
         method,
@@ -30,7 +31,6 @@ const getArticleWithToken = async (token, page=0) => {
     return [request.status, await request.json()]
 }
 
-
 const getOneArticleWithoutToken = async (id, domain=undefined) => {
     let request = await fetch(`${domain}${routes.GET.articleWithOutToken}${id}`, {
         method,
@@ -43,7 +43,6 @@ const getOneArticleWithoutToken = async (id, domain=undefined) => {
     })
     return [request.status, await request.json()]
 }
-
 
 const getCurrentUser = async (token) => {
     let request = await fetch(routes.GET.currentUser, {

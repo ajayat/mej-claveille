@@ -2,7 +2,7 @@
 
 // Export mail connection configuration
 let databaseConfig = {
-    type: process.env.DATABASE_TYPE,
+    type: process.env.DATABASE_DIALECT,
     url: process.env.DATABASE_URL,
     // rejectUnauthorized: false
     synchronize: process.env.NODE_ENV !== 'production',

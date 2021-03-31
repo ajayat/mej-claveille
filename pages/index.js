@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 
 import Template from '../templates/public/public'
 
-import style from './index.module.scss'
+import style from './index.module.sass'
 import Head from "next/head"
 
 // First app
@@ -54,7 +54,7 @@ export default class Home extends Component {
                     </p>
                     <p>
                         Au cours de l’année, dans un groupe raisonnable de 5 à 15 personnes on travaille sur un sujet de mathématique appliquée en lien souvent avec un autre domaine comme la finance, la physique ou la biologie.<br/>
-                        Vers le mois de mai, on se déplacera pendant 3-4 jours pour présenter le projet à d’autres lycées, l’année dernière le Congrès devait avoir lieu à Bordeaux.<br/>
+                        Vers le mois de mai, On assiste à un Congrès pendant 3-4 jours pour présenter le projet à d’autres lycées, <br/>
                         Aucunes compétences ou connaissances particulières n’est requise, hormis le programme de votre année scolaire, on attend seulement à ce que vous soyez motivés :
                         <ul>
                             <li>
@@ -78,8 +78,8 @@ export default class Home extends Component {
                         Vous pouvez consulter le compte rendu du projet de l’année précédente <a href="https://blogpeda.ac-bordeaux.fr/labomaths-claveille-perigueux/files/2019/12/M%C3%A9thode-de-Monte-Carlo-pour-la-simulation-du-mouvement-brownien_finalis%C3%A9.pdf" rel="Rapport Mouvement brownien 2019-2020" target="_blank">Rapport Mouvement brownien 2019-2020</a>.
                     </p>
                     <p>
-                        Cette année le projet se concentre cette fois ci sur les équations différentielles, c’est-à-dire de équations qui impliquent tout simplement une fonction et sa dérivée, pas de panique si vous n’avez pas encore vu les dérivées ! Ce n’est pas bien compliqué et puis c’est pour ça M. Lefebvre est là !
-                        C’est alors avec le modèle de propagation d’un épidémie, SIR dans notre cas que nous appliquons ces équations.
+                        Cette année le projet se concentre cette fois ci sur les équations différentielles, c’est-à-dire de équations qui impliquent tout simplement une fonction et sa dérivée.
+                        On trouve une application dans le modèle de propagation d’un épidémie comme SIR (Sains - Infectés - Rétablis).
                     </p>
                     <p>
                         Source :

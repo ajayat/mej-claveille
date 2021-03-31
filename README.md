@@ -1,60 +1,60 @@
-## Caveille Math En Jeans
+## Claveille - Math En Jeans
 
 First set the environment variables:
 
-````environment
-NODE_ENV ( development or production )
-PORT ( optional default 3000 )
+```sh
+NODE_ENV=development / production
+PORT=3000 # optional
 
-DATABASE_URL ( exemple : mysql://user:pass@host/dbname )
-DATABASE_DIALECT ( exemple : mysql )
+DATABASE_URL="mysql://user:pass@host/dbname"
+DATABASE_DIALECT=mysql
 
-MAIL_HOST ( mail host like smtp.gmail.com )
-MAIL_PORT ( smtp port like 25, 587 )
-MAIL_USER ( smtp login )
-MAIL_PASSWORD= ( smtp pasword )
-MAIL_FROM = ( mail from header )
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USER=<user>
+MAIL_PASSWORD=<password>
+MAIL_FROM="user@example.com"
 
-JWT_KEY ( jsonwebtoken key )
-JWT_TIME ( jsonwebtoken time )
+JWT_KEY=<jsonwebtoken key>
+JWT_TIME=<jsonwebtoken time>
 
-SITE_URL ( url of the site  )
-SITE_NAME ( name of the site )
-FULL_ADMIN ( email of the admin in json exemple ["user@domain.com"] )
+SITE_URL=<url of the site>
+SITE_NAME="Math En Jeans Claveille"
+FULL_ADMIN=["user@domain.com"]
 
-MAX_QUERY_LIMIT ( article request limit default 30 )
-````
+MAX_QUERY_LIMIT=30 # article request limit
+```
 
-Update the option in ````/api/config````  for your database and your smtp server.
+Update the option in ```/api/config```  for your database and your smtp server.
 
 Install dependencies:
 
-```bash
+```npm
 npm install
 ```
 
 Run the development server:
 
-```bash
+```npm
 npm run dev
 ```
 
 
-## Deploy
+## Deployment
 
 Set environment to:
-````environment
+```sh
 NODE_ENV=production
-````
+```
 
 With docker:
-```bash
+```docker
 docker-compose up -d
 ```
 
 Or:
 
-```bash
+```npm
 npm run build
 npm run export 
 npm start
